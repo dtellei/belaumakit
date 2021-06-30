@@ -7,3 +7,7 @@ ____________________________________________________________
 # Run Instructions on Android Studio
 npx react-native start = Opens Metro Bundler
 npx react-native run-android = Starts the android emulation
+
+------------------------------------------------------------
+# If it breaks use this
+npx react-native start --reset-cache
