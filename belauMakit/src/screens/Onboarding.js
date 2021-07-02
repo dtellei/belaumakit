@@ -60,16 +60,19 @@ const OnboardingScreen = ({navigation}) =>{
 
         pages={[
             {
+                backgroundColor: '#a6e4d0',
                 image: <Image source={require('../images/TL.png')}/>,
                 title: 'Welcome to Our App!',
                 subtitle: 'Share your stuff here!'
             },
             {
+                backgroundColor: '#fdeb93',
                 image: <Image source={require('../images/TL.png')}/>,
                 title: 'Something about onboarding!',
                 subtitle: 'Pls help idk what to write~'
             },
             {
+                backgroundColor: '#e9bcbe',
                 image: <Image source={require('../images/TL.png')}/>,
                 title: 'A duck walked up to a lemonade stand And he said to the man, running the stand "Hey! (Bum bum bum) Got any grapes?"!',
                 subtitle: 'The man said "No we just sell lemonade. But it’s cold And it’s fresh And it’s all home-made. Can I get you Glass?" The duck said, “I’ll pass”.'

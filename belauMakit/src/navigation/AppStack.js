@@ -178,3 +178,5 @@ const AppDrawer = () => {
         </Drawer.Navigator>
     );
 };
+
+export default AppStack;

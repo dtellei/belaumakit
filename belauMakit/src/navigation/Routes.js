@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-import NavigationContext from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 
-import { AuthStack } from './AuthStack';
 import { AuthContext } from './AuthProvider';
+import AuthStack from './AuthStack';
+import AppStack from './AppStack';
 
 
 
-export const Routes = () => {
+
+const Routes = () => {
 
     const { user, setUser } = useContext(AuthContext);
     const { initializing, setInitializing } = useState(true);
@@ -22,11 +24,13 @@ export const Routes = () => {
         return subscriber;
     }, []);
 
-    if(initializing) return null;
+    if (initializing) return null;
 
     return (
-        <NavigationContext>
-            { user ? <AppStack/> : <AuthStack />}
-        </NavigationContext>
+        <NavigationContainer>
+            {user ? <AppStack /> : <AuthStack />}
+        </NavigationContainer>
     );
 };
+
+export default Routes;

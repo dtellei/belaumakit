@@ -110,6 +110,8 @@ const SignUpScreen = ({navigation}) => {
 
 }
 
+export default SignUpScreen;
+
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',

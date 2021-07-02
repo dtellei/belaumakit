@@ -3,15 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer, getFocusedRouteNameFromRoute, DrawerActions, } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 import Onboarding from '../screens/Onboarding';
 import Landing from '../screens/Landing';
-
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 
 const Stack = createStackNavigator();
 
