@@ -1,29 +1,29 @@
 import 'react-native-gesture-handler';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { NavigationContainer, getFocusedRouteNameFromRoute, DrawerActions, } from '@react-navigation/native';
+import {  getFocusedRouteNameFromRoute, DrawerActions, } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { AntDesign, Entypo, Ionicons } from 'react-native-vector-icons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Entypo from 'react-native-vector-icons/Entypo';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { AuthContext } from '../navigation/AuthProvider';
 
-import Home from '../screens/Home';
-import Map from '../screens/Map';
-import Orders from '../screens/Orders';
-import Settings from '../screens/Settings';
-import Cart from '../screens/Cart';
+import HomeScreen from '../screens/Home';
+import MapScreen from '../screens/Map';
+import OrdersScreen from '../screens/Orders';
+import SettingsScreen from '../screens/Settings';
+import LogoutScreen from '../screens/Logout';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const { logout } = useContext(AuthContext);
+
 
 const AppStack = () => {
 
     return (
-        <NavigationContainer>
             <Stack.Navigator>
-
                 <Stack.Screen
                     name="Belau Makit"
                     component={AppDrawer}
@@ -91,17 +91,16 @@ const AppStack = () => {
                     )}
                 </Stack.Screen>
             </Stack.Navigator>
-        </NavigationContainer>
     )
 }
 
 const AppDrawer = () => {
     return (
-        <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Navigator initialRouteName="HomeScreen">
 
             <Drawer.Screen
-                name="Belau Makit"
-                component={Home}
+                name="HomeScreen"
+                component={HomeScreen}
                 options={{
                     title: 'Belau Makit',
                     drawerIcon: ({ focused }) => (
@@ -115,8 +114,8 @@ const AppDrawer = () => {
             />
 
             <Drawer.Screen
-                name="Map"
-                component={Map}
+                name="MapScreen"
+                component={MapScreen}
                 options={{
                     title: 'Map',
                     drawerIcon: ({ focused }) => (
@@ -130,8 +129,8 @@ const AppDrawer = () => {
             />
 
             <Drawer.Screen
-                name="Orders"
-                component={Orders}
+                name="OrdersScreen"
+                component={OrdersScreen}
                 options={{
                     title: 'Orders',
                     drawerIcon: ({ focused }) => (
@@ -145,8 +144,8 @@ const AppDrawer = () => {
             />
 
             <Drawer.Screen
-                name="Settings"
-                component={Settings}
+                name="SettingsScreen"
+                component={SettingsScreen}
                 options={{
                     title: 'Settings',
                     drawerIcon: ({ focused }) => (
@@ -160,8 +159,8 @@ const AppDrawer = () => {
             />
 
             <Drawer.Screen
-                name="Logout"
-                component={Logout}
+                name="LogoutScreen"
+                component={LogoutScreen}
                 options={{
                     title: 'Logout',
                     drawerIcon: ({ focused }) => (
@@ -169,7 +168,7 @@ const AppDrawer = () => {
                             name="logout"
                             size={25}
                             color={focused ? '#7cc' : '#E88832'}
-                            onPress={() => logout()}
+                            onPress={() => navigation.navigate('Logout')}
                         />
                     ),
                 }}

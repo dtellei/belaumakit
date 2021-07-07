@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Pressable } from 'react-native';
 
 import FormInput from '../components/FormInput'
 import FormButton from '../components/FormButton'
 import {AuthContext} from '../navigation/AuthProvider';
-
+ 
 const SignUpScreen = ({navigation}) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -12,27 +12,7 @@ const SignUpScreen = ({navigation}) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const {register} = useContext(AuthContext);
-
-    // async function register(){
-    //     try {
-    //         const response = await firebase.auth().createUserWithEmailAndPassword(signUpEmail, signUpPassword);
-    //         if (response.user) {
-    //             const user = firebase.auth().curentUser;
-    //             var userDocRef = firestore.doc('users/' + user.id);
-    //             var userDocRef = firestore.doc('users/' + user.contact)
-
-    //             userDocRef.set({
-    //                 name: signUpName,
-    //                 contact: signUpContact
-    //             });
-    //             props.updateStatus(true);
-    //             const isAuthenticated = firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-    //         }
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
+    const { register } = useContext(AuthContext);
 
     return(
         <ScrollView backgroundColor='#FFF' contentContainerStyle={{flexGrow:1}}>

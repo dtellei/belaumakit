@@ -7,7 +7,7 @@ import Landing from '../images/TL.png';
 import FormButton from '../components/FormButton';
 
 
-const Landingscreen = ({ navigation }) => {
+const LandingScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.bgcontainer}>
@@ -16,19 +16,19 @@ const Landingscreen = ({ navigation }) => {
             <Text style={styles.h1}>Belau Makit</Text>
             <FormButton
                 styles={styles.signInButton}
-                onPress={() => navigation.navigate('SignIn')}>
-                <Text style={styles.signInText}>Login</Text>
+                onPress={() => navigation.navigate('SignIn')}
+                buttonTitle="Login">
             </FormButton>
             <FormButton
                 style={styles.signUpButton}
-                onPress={() => navigation.navigate('SignUp')}>
-                <Text style={styles.signUpText}>Sign Up</Text>
+                onPress={() => navigation.navigate('SignUp')}
+                buttonTitle="Sign Up">
             </FormButton>
         </View>
     );
 };
 
-export default Landingscreen;
+export default LandingScreen;
 
 const styles = StyleSheet.create({
     container: {

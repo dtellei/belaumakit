@@ -5,9 +5,10 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
 
+
 export const AuthContext = createContext()
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children, navigation }) => {
     const [user, setUser] = useState(null);
 
     return (

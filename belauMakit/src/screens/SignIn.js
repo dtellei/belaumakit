@@ -1,32 +1,18 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { View, Text, TouchableOpacity, Pressable, Modal, Alert, StyleSheet } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { View, Text, TouchableOpacity, Pressable, Modal, Alert, StyleSheet, StatusBar } from 'react-native';
 
-import FormInput from '../components/FormInput'
-import FormButton from '../components/FormButton'
 import { AuthContext } from '../navigation/AuthProvider';
+import FormInput from '../components/FormInput';
+import FormButton from '../components/FormButton';
 
 const SignInScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [modalVisible, setModalVisible] = useState(false);
+    const [forgetPassword, setForgetPassword] = useState('');
 
     const { login } = useContext(AuthContext);
 
-
-    // async function login() {
-    //     try {
-    //         await firebase.auth().signInWithEmailandPassword(loginEmail, loginPassword);
-    //         firebase.auth().onAuthStateChange(function (user) {
-    //             if (user) {
-    //                 props.updateState(true);
-    //                 <Authenticate updateStatus={(val) => setAuthenticated(val)} />
-    //             } else {
-    //                 props.updateState(false);
-    //             }
-    //         })
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
@@ -34,6 +20,7 @@ const SignInScreen = ({ navigation }) => {
                 <Text style={styles.titletext}>Log in</Text>
             </View>
             <View style={styles.centerContainer}>
+
                 <FormInput
                     labelValue={email}
                     onChangeText={(userEmail) => setEmail(userEmail)}
@@ -42,7 +29,6 @@ const SignInScreen = ({ navigation }) => {
                     keyboardType="email-address"
                     autoCapitalize="none"
                     autoCorrect={false}
-                    style={styles.input}
                 />
 
                 <FormInput
@@ -51,7 +37,6 @@ const SignInScreen = ({ navigation }) => {
                     placeholderText="Password"
                     iconType="lock"
                     secureTextEntry={true}
-                    style={styles.input}
                 />
 
                 <Modal
@@ -67,7 +52,7 @@ const SignInScreen = ({ navigation }) => {
                                 Forget your password? Les change it rq. Enter your email
                                 address:
                             </Text>
-                            <FormInput1
+                            <FormInput
                                 labelValue={forgetPassword}
                                 onChangeText={(userForget) => setForgetPassword(userForget)}
                                 keyboardType="email-address"
@@ -77,7 +62,7 @@ const SignInScreen = ({ navigation }) => {
                             <Pressable
                                 style={[styles.button, styles.buttonClose]}
                                 onPress={() => setModalVisible(!modalVisible)}>
-                                <Text style={styles.textStyle}>Hide Modal</Text>
+                                <Text style={styles.textStyle}>Submit</Text>
                             </Pressable>
                         </View>
                     </View>
@@ -94,7 +79,7 @@ const SignInScreen = ({ navigation }) => {
                 <TouchableOpacity style={styles.forgotButton}>
                     <Text
                         style={styles.navButtonText}
-                        onPress={() => navigation.navigate('Signup')}>
+                        onPress={() => navigation.navigate('SignUp')}>
                         Don't have an account? Sign up here
                     </Text>
                 </TouchableOpacity>

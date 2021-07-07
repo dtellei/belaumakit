@@ -1,15 +1,16 @@
 import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
-import { NavigationContainer, getFocusedRouteNameFromRoute, DrawerActions, } from '@react-navigation/native';
+import { getFocusedRouteNameFromRoute, DrawerActions, } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
-import Onboarding from '../screens/Onboarding';
-import Landing from '../screens/Landing';
+import OnboardingScreen from '../screens/Onboarding';
+import LandingScreen from '../screens/Landing';
 
 const Stack = createStackNavigator();
 
@@ -39,7 +40,7 @@ const AuthStack = () => {
         <Stack.Navigator initialRoute={routeName}>
             <Stack.Screen
                 name='Onboarding'
-                component={Onboarding}
+                component={OnboardingScreen}
                 options={{ header: () => null }}
             />
             <Stack.Screen
@@ -62,7 +63,7 @@ const AuthStack = () => {
                             <AntDesign name='arrowleft' size={30}
                                 backgroundColor='#fff'
                                 color='#333' outline='none'
-                                onPress={() => navigation.navigate('Login')}
+                                onPress={() => navigation.navigate('SignIn')}
                             />
                             <Text style={{ fontSize: 20, flexDirection: 'row' }}>Login</Text>
                         </View>
@@ -71,7 +72,7 @@ const AuthStack = () => {
             />
             <Stack.Screen
                 name='Landing'
-                component={Landing}
+                component={LandingScreen}
                 options={{ header: () => null }}
             />
         </Stack.Navigator>

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import { windowHeight, windowWidth } from './Dimensions';
 
-import AntDesign from 'react-native-vector-icons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const FormInput = ({ labelValue, placeholderText, iconType, ...rest }) => {
     return (
@@ -14,9 +14,9 @@ const FormInput = ({ labelValue, placeholderText, iconType, ...rest }) => {
                 value={labelValue}
                 style={styles.input}
                 placeholder={placeholderText}
-                placeholderTextColor="#666"
-                fontSize={18}
-                {...rest} />
+                placeholderTextColor="black"
+                {...rest}
+            />
         </View>
     );
 };
@@ -50,5 +50,5 @@ const styles = StyleSheet.create({
         color: '#666',
         justifyContent: 'center',
         alignItems: 'center',
-    }
+    },
 });
