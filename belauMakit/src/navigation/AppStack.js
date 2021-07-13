@@ -14,6 +14,7 @@ import MapScreen from '../screens/Map';
 import OrdersScreen from '../screens/Orders';
 import SettingsScreen from '../screens/Settings';
 import LogoutScreen from '../screens/Logout';
+import CartScreen from '../screens/Cart';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -90,6 +91,33 @@ const AppStack = () => {
                         <HomeScreen {...props} onPress={() => navigation.navigate('Product')} />
                     )}
                 </Stack.Screen>
+
+                <Stack.Screen
+                    name='Cart'
+                    options={({ navigation }) => ({
+                        title: '',
+                        headerStyle: {
+                            backgroundColor: '#fff',
+                            shadowColor: '#fff',
+                            elevation: 0,
+                        },
+                        headerLeft: () => (
+                            <View style={{ marginLeft: 20 }}>
+                                <AntDesign
+                                    name='arrowleft'
+                                    size={30}
+                                    backgroundColor='#fff'
+                                    color='#333' outline='none'
+                                    onPress={() => navigation.navigate('HomeScreen')}
+                                />
+                            </View>
+                        ),
+                    })}>
+                    {(props) => (
+                        <CartScreen />
+                    )}
+                </Stack.Screen>
+
             </Stack.Navigator>
     )
 }
@@ -168,7 +196,7 @@ const AppDrawer = () => {
                             name="logout"
                             size={25}
                             color={focused ? '#7cc' : '#E88832'}
-                            onPress={() => navigation.navigate('Logout')}
+                            
                         />
                     ),
                 }}

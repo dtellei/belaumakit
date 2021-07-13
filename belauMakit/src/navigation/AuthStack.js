@@ -1,7 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
-import { getFocusedRouteNameFromRoute, DrawerActions, } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -31,11 +30,12 @@ const AuthStack = () => {
 
     if (isFirstLaunch === null) {
         return null;
-    } else if (isFirstLaunch) {
+    } else if (isFirstLaunch == true) {
         routeName = 'Onboarding'; // replace with onboarding
     } else {
         routeName = 'Landing';
     }
+    
     return (
         <Stack.Navigator initialRoute={routeName}>
             <Stack.Screen
