@@ -2,13 +2,13 @@ import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import { windowHeight } from './Dimensions';
 
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import Entypo from 'react-native-vector-icons/Entypo';
 
-const FormInput = ({ labelValue, placeholderText, iconType, ...rest }) => {
+const ProductInput = ({ labelValue, placeholderText, iconType, ...rest }) => {
     return (
         <View style={styles.inputContainer}>
             <View style={styles.iconStyle}>
-                <AntDesign name={iconType} size={25} color="#E88832" />
+                <Entypo name={iconType} size={25} color="#E88832" />
             </View>
             <TextInput
                 value={labelValue}
@@ -21,7 +21,7 @@ const FormInput = ({ labelValue, placeholderText, iconType, ...rest }) => {
     );
 };
 
-export default FormInput;
+export default ProductInput;
 
 const styles = StyleSheet.create({
     inputContainer: {

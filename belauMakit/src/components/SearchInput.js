@@ -1,34 +1,47 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { SafeAreaView, View, StyleSheet } from 'react-native';
+
+import FormInput from './FormInput';
+import FormButton from './FormButton';
 
 const SearchInput = props => {
-    const [ searchFood, setSearchFood ] = useState('');
+    const [searchFood, setSearchFood] = useState('');
 
     const searchFoodHandler = (enteredFood) => {
         setSearchFood(enteredFood);
     };
-    return(
-        <View style={styles.search}>
-            <TextInput 
-                placeholder="Search for food, makit, etc."
-                style={styles.input}
-                onChange={searchFoodHandler}
-                value={searchFood}/>
-            <Button title="Search"/>
-        </View>
+    return (
+        <SafeAreaView style={styles.container}>
+            <View style={styles.input}>
+                <FormInput
+                    iconType="search1"
+                    placeholder="Search for food, makit, etc."
+                    placeholderTextColor="grey"
+                    onChange={searchFoodHandler}
+                    value={searchFood} 
+                />
+            </View>
+            <View>
+                <FormButton buttonTitle="Search" />
+            </View>
+        </SafeAreaView>
     )
 }
 
 export default SearchInput;
 
 const styles = StyleSheet.create({
-    search: {
+    container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        flexDirection: 'row',
+        width: '100%'
     },
-    input: {
-        justifyContent: 'center'
-    }
+    input:{
+        width: '80%',
+        paddingLeft: 40
+    },
+    searchBtn:{
+        width: '10%'
+    },
 });
 

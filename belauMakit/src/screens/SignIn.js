@@ -5,7 +5,7 @@ import { AuthContext } from '../navigation/AuthProvider';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 
-const SignInScreen = ({ navigation }) => {
+const SignIn = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
@@ -89,7 +89,7 @@ const SignInScreen = ({ navigation }) => {
 
 }
 
-export default SignInScreen;
+export default SignIn;
 
 const styles = StyleSheet.create({
   container: {

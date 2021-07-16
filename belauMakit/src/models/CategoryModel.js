@@ -1,4 +1,4 @@
-class Category{
+class CategoryModel{
     constructor(id, title, image) {
         this.id = id;
         this.title = title;
@@ -6,4 +6,4 @@ class Category{
     }
 };
 
-export default Category;
+export default CategoryModel;

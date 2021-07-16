@@ -8,7 +8,7 @@ import firestore from '@react-native-firebase/firestore';
 
 export const AuthContext = createContext()
 
-export const AuthProvider = ({ children, navigation }) => {
+export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
     return (
@@ -29,11 +29,10 @@ export const AuthProvider = ({ children, navigation }) => {
                             .then(() => {
                                 firestore().collection('users').doc(auth().currentUser.uid)
                                     .set({
-                                        name: '',
-                                        contact: '',
-                                        email: '',
+                                        name: name,
+                                        contact: contact,
+                                        email: email,
                                         dateCreated: firestore.Timestamp.fromDate(new Date()),
-                                        userImage: null,
                                     })
                             })  
 
@@ -45,6 +44,18 @@ export const AuthProvider = ({ children, navigation }) => {
                     try {
                         await auth().signOut();
                     } catch (e) {
+                        console.log(e);
+                    }
+                },
+                addProduct: async (itemName, price) =>{
+                    try {
+                        await firestore().collection('products').doc(auth().currentUser.uid)
+                        .set({
+                            itemName: itemName,
+                            price: price,
+                            dateCreated: firestore.Timestamp.fromDate(new Date()),
+                        })
+                    } catch (e){
                         console.log(e);
                     }
                 }

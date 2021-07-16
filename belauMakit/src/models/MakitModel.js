@@ -1,4 +1,4 @@
-class Makit{
+class MakitModel{
     constructor(id, title, location, image) {
         this.id = id;
         this.title = title;
@@ -7,4 +7,4 @@ class Makit{
     }
 };
 
-export default Makit;
+export default MakitModel;

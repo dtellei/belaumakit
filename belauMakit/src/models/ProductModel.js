@@ -1,4 +1,4 @@
-class Products {
+class ProductModel{
     constructor(
         id, 
         categoryId, 
@@ -23,4 +23,4 @@ class Products {
     }
 }
 
-export default Products;
+export default ProductModel;

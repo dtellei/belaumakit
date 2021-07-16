@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList, Platform } from 'react-native';
 
 import { } from '../data/dummy-data';
-import MakitList from './makit-list';
+import ProductModel from './ProductModel';
 
 const ProductListScreen = props => {
     return(

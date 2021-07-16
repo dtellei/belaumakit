@@ -11,7 +11,7 @@ const CategoryList = props => {
     return(
         <View style={styles.category}>
                 <FlatList
-                  numColumns={8}
+                  horizontal={true}
                   keyExtractor={(item) => item.id}
                   data={CATEGORIES}
                   renderItem={({ item }) => (
@@ -33,26 +33,18 @@ const styles = StyleSheet.create({
     category: {
         flex: 1,
         margin: 15,
-        height: 150,
-        borderRadius: 10,
         overflow: 'hidden'
     },
-    container: {
-        flex: 1,
-        borderRadius: 10,
-        shadowColor: '#111',
-        shadowOpacity: 0,
-        shadowOffset: {width: 0, height: 2},
-        shadowRadius: 10,
-        elevation: 3,
-        padding: 15,
-        justifyContent: 'center',
-        alignItems: 'center'
+    icon: {
+      marginLeft: 12,
     },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        textAlign: 'center'
-    }
+    catText: {
+      fontSize: 18,
+      fontFamily: 'MarkaziText_400Regular',
+      fontWeight: '500',
+      textAlign: 'center',
+      width: 58,
+      marginLeft: 8,
+      marginRight: 8,
+    },
 });
-

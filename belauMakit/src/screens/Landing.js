@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { windowHeight, windowWidth } from '../components/Dimensions';
-import Landing from '../images/TL.png';
+import { windowHeight } from '../components/Dimensions';
+import Landing from '../assets/TL.png';
 
 
 import FormButton from '../components/FormButton';
