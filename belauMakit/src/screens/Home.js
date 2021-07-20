@@ -4,9 +4,9 @@ import { StyleSheet, SafeAreaView, View } from 'react-native';
 import MakitList from '../components/makit-list';
 import CategoryList from '../components/category-list';
 import SearchInput from '../components/SearchInput';
-import { windowHeight } from '../components/Dimensions';
 
-const HomeScreen = ({ navigation }) => {
+
+const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
 

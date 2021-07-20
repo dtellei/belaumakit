@@ -7,7 +7,6 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { AuthContext } from '../navigation/AuthProvider';
 
 import HomeScreen from '../screens/Home';
 import MapScreen from '../screens/Map';

@@ -1,5 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
-import { View, Text } from 'react-native';
+import React, { useState, createContext } from 'react';
 
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
@@ -9,6 +8,7 @@ import firestore from '@react-native-firebase/firestore';
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
+    
     const [user, setUser] = useState(null);
 
     return (
@@ -17,6 +17,13 @@ export const AuthProvider = ({ children }) => {
                 user,
                 setUser,
                 login: async (email, password) => {
+                    try {
+                        await auth().signInWithEmailAndPassword(email, password)
+                    } catch (e) {
+                        console.log(e);
+                    }
+                },
+                loginVendor: async (email, password) => {
                     try {
                         await auth().signInWithEmailAndPassword(email, password)
                     } catch (e) {
@@ -49,11 +56,14 @@ export const AuthProvider = ({ children }) => {
                 },
                 addProduct: async (itemName, price) =>{
                     try {
-                        await firestore().collection('products').doc(auth().currentUser.uid)
-                        .set({
+                        await firestore().collection('products')
+                        .add({
                             itemName: itemName,
                             price: price,
                             dateCreated: firestore.Timestamp.fromDate(new Date()),
+                        })
+                        .then(() => {
+                            console.log('Product Added')
                         })
                     } catch (e){
                         console.log(e);

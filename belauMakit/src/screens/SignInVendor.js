@@ -5,20 +5,20 @@ import { AuthContext } from '../navigation/AuthProvider';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 
-const SignIn = ({ navigation }) => {
+const SignInVendor = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const [forgetPassword, setForgetPassword] = useState('');
 
-  const { login } = useContext(AuthContext);
+  const { loginVendor } = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
 
       <View style={styles.title}>
-        <Text style={styles.titletext}>Customer Login</Text>
+        <Text style={styles.titletext}>Vendor Login</Text>
 
       </View>
       <View style={styles.centerContainer}>
@@ -75,15 +75,15 @@ const SignIn = ({ navigation }) => {
 
         <FormButton
           buttonTitle="Log In"
-          onPress={() => login(email, password)}
+          onPress={() => loginVendor(email, password)}
         />
       
       <View style={styles.forgotButton}>
         <TouchableOpacity style={styles.forgotButton}>
           <Text
             style={styles.navButtonText}
-            onPress={() => navigation.navigate('SignInVendor')}>
-            Logging in as a Vendor? Log In Here.
+            onPress={() => navigation.navigate('SignIn')}>
+            Logging in as a Customer? Log In Here.
           </Text>
         </TouchableOpacity>
 
@@ -102,7 +102,7 @@ const SignIn = ({ navigation }) => {
 
 }
 
-export default SignIn;
+export default SignInVendor;
 
 const styles = StyleSheet.create({
   container: {

@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "174036553680",
-    "project_id": "belau-makit",
-    "storage_bucket": "belau-makit.appspot.com"
+    "project_number": "578268471628",
+    "project_id": "belau-makit-f6075",
+    "storage_bucket": "belau-makit-f6075.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:174036553680:android:75b7bf447181588c26b3d5",
+        "mobilesdk_app_id": "1:578268471628:android:7b0d330c6d9103b250efe9",
         "android_client_info": {
           "package_name": "com.belaumakit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "174036553680-qv3uglqmo47kajciv30nvb22khq110ss.apps.googleusercontent.com",
+          "client_id": "578268471628-ctsp5sfcda4rhgpjg0cgfiiultdsqj9q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBc-_JhDFVgBVwQnu5_N3iHYCzASvqiNLE"
+          "current_key": "AIzaSyBZ9W-Cw9K4lFa7DqN-HW3sZhPo_Qsw8TM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "174036553680-qv3uglqmo47kajciv30nvb22khq110ss.apps.googleusercontent.com",
+              "client_id": "578268471628-ctsp5sfcda4rhgpjg0cgfiiultdsqj9q.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

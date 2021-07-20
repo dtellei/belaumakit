@@ -7,9 +7,11 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 
 import SignIn from '../screens/SignIn';
+import SignInVendor from '../screens/SignInVendor';
 import SignUp from '../screens/SignUp';
 import OnboardingScreen from '../screens/Onboarding';
 import LandingScreen from '../screens/Landing';
+
 
 const Stack = createStackNavigator();
 
@@ -35,7 +37,7 @@ const AuthStack = () => {
     } else {
         routeName = 'Landing';
     }
-    
+
     return (
         <Stack.Navigator initialRoute={routeName}>
             <Stack.Screen
@@ -48,6 +50,12 @@ const AuthStack = () => {
                 component={SignIn}
                 options={{ header: () => null }}
             />
+            <Stack.Screen
+                name='SignInVendor'
+                component={SignInVendor}
+                options={{ header: () => null }}
+            />
+
             <Stack.Screen
                 name='SignUp'
                 component={SignUp}
@@ -75,6 +83,7 @@ const AuthStack = () => {
                 component={LandingScreen}
                 options={{ header: () => null }}
             />
+
         </Stack.Navigator>
     )
 }
