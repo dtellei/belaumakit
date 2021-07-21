@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }) => {
                 login: async (email, password) => {
                     try {
                         await auth().signInWithEmailAndPassword(email, password)
+                        //add alerts here (use .then function/operator)
                     } catch (e) {
                         console.log(e);
                     }
@@ -41,6 +42,7 @@ export const AuthProvider = ({ children }) => {
                                         email: email,
                                         dateCreated: firestore.Timestamp.fromDate(new Date()),
                                     })
+                                    //add alerts here
                             })  
 
                     } catch (e) {
@@ -54,21 +56,6 @@ export const AuthProvider = ({ children }) => {
                         console.log(e);
                     }
                 },
-                addProduct: async (itemName, price) =>{
-                    try {
-                        await firestore().collection('products')
-                        .add({
-                            itemName: itemName,
-                            price: price,
-                            dateCreated: firestore.Timestamp.fromDate(new Date()),
-                        })
-                        .then(() => {
-                            console.log('Product Added')
-                        })
-                    } catch (e){
-                        console.log(e);
-                    }
-                }
             }
             }
         >

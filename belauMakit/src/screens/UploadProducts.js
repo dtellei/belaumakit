@@ -3,16 +3,21 @@ import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
 
 import ProductInput from '../components/ProductInput'
 import FormButton from '../components/FormButton'
-import { AuthContext } from '../navigation/AuthProvider';
+import { ProductContext } from '../components/ProductFunctions';
+import FormInput from '../components/FormInput';
 
 const ProductUploadScreen = ({ navigation }) => {
     const [itemName, setItemName] = useState('');
     const [price, setPrice] = useState('');
+    const [vendorContactNumber, setVendorContactNumber] = useState('');
+    const [vendorName, setVendorName] = useState('');
+    const [vendorPermitNumber, setVendorPermitNumber] = useState('');
+    const [itemDescription, setItemDescription] = useState('');
 
-
-    const { addProduct } = useContext(AuthContext);
+    const { addProduct } = useContext(ProductContext);
 
     return (
+
         <SafeAreaView style={styles.container}>
             <Text style={styles.header}>Upload Products Here</Text>
             <ScrollView backgroundColor='#FFF' contentContainerStyle={{ flexGrow: 1 }}>
@@ -27,21 +32,61 @@ const ProductUploadScreen = ({ navigation }) => {
                         autoCorrect={false}
                     />
 
-                    {/* Insert Text Field for item description */}
-
                     <ProductInput
                         labelValue={price}
                         onChangeText={(itemPrice) => setPrice(itemPrice)}
-                        placeholderText="Price"
+                        placeholderText="Item Price"
                         iconType="price-tag"
                         keyboardType="default"
                         autoCapitalize="none"
                         autoCorrect={false}
                     />
 
+                    <FormInput
+                        labelValue={vendorName}
+                        onChangeText={(vendorNames) => setVendorName(vendorNames)}
+                        placeholderText="Vendor Name"
+                        iconType="user"
+                        keyboardType="default"
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                    />
+
+                    <ProductInput
+                        labelValue={vendorContactNumber}
+                        onChangeText={(vendorPhone) => setVendorContactNumber(vendorPhone)}
+                        placeholderText="Contact Number"
+                        iconType="phone"
+                        keyboardType="default"
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                    />
+
+                    <FormInput
+                        labelValue={vendorPermitNumber}
+                        onChangeText={(vendorPermit) => setVendorPermitNumber(vendorPermit)}
+                        placeholderText="Permit Number"
+                        iconType="idcard"
+                        keyboardType="default"
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                    />
+
+                    <ProductInput
+                        labelValue={itemDescription}
+                        onChangeText={(itemDesc) => setItemDescription(itemDesc)}
+                        placeholderText="Item Description"
+                        iconType="text-document"
+                        keyboardType="default"
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                    />
+
+                    {/* Insert Image Picker Stuff Here */}
+
                     <FormButton
                         buttonTitle="Upload Product"
-                        onPress={() => addProduct(itemName, price)}
+                        onPress={() => addProduct(itemName, price, vendorName, vendorContactNumber, vendorPermitNumber, itemDescription)}
                     />
                 </View>
             </ScrollView>
@@ -53,7 +98,7 @@ const ProductUploadScreen = ({ navigation }) => {
 export default ProductUploadScreen;
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         backgroundColor: '#FFF'
     },
     productContainer: {
@@ -74,7 +119,7 @@ const styles = StyleSheet.create({
     },
     navButton: {
         marginTop: 15
-    },  
+    },
     navButtonText: {
         fontSize: 18,
         fontWeight: '500',
