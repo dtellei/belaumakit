@@ -21,6 +21,8 @@
     "antd-mobile": "^2.3.4",
     "expo-app-loading": "^1.0.3",
     "firebase": "^8.6.8",
+    "firebase-admin": "^9.11.0",
+    "firebase-functions": "^3.14.1",
     "react": "17.0.1",
     "react-native": "0.64.2",
     "react-native-gesture-handler": "^1.10.3",

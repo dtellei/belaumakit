@@ -3,12 +3,12 @@ import React, { useState, createContext } from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
-
+import { verifyVendorRole } from '../../functions/index.js';
 
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
-    
+
     const [user, setUser] = useState(null);
 
     return (
@@ -27,6 +27,10 @@ export const AuthProvider = ({ children }) => {
                 loginVendor: async (email, password) => {
                     try {
                         await auth().signInWithEmailAndPassword(email, password)
+                            .then(() => {
+                                verifyVendorRole();
+                            })
+
                     } catch (e) {
                         console.log(e);
                     }
@@ -42,8 +46,8 @@ export const AuthProvider = ({ children }) => {
                                         email: email,
                                         dateCreated: firestore.Timestamp.fromDate(new Date()),
                                     })
-                                    //add alerts here
-                            })  
+                                //add alerts here
+                            })
 
                     } catch (e) {
                         console.log(e);
